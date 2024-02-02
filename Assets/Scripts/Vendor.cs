@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class Vendor : Interactable
 {
-    
-    [SerializeField] private List<ShopItem> _shopItems;
+    [SerializeField] private List<Item> _shopItems;
     [SerializeField] private string _shopTitle;
     public override void Interact()
     {

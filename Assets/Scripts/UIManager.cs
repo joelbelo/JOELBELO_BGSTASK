@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void OpenShopPanel(List<ShopItem> items, string title)
+    public void OpenShopPanel(List<Item> items, string title)
     {
         _shopPanel.gameObject.SetActive(true);
         _shopPanel.Init(items, title);

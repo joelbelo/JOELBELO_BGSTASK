@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-[Serializable]
+[CreateAssetMenu(fileName = "Gear", menuName = "ScriptableObjects/Gear", order = 2)]
 public class Gear : Item
 {
     public GearSlot Slot;

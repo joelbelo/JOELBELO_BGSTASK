@@ -10,7 +10,7 @@ public class ShopPanel : UIPanel
 
     [SerializeField] private Transform _content;
     [SerializeField] private ShopItemUI _prefabItem;
-    public void Init(List<ShopItem> items, string title)
+    public void Init(List<Item> items, string title)
     {
         base.Init();
         _shopTitle.text = title;
@@ -23,7 +23,7 @@ public class ShopPanel : UIPanel
             Destroy(t.gameObject);
         }
 
-        foreach (ShopItem s in items)
+        foreach (Item s in items)
         {
             Instantiate(_prefabItem, _content, false).Init(s);
         }
