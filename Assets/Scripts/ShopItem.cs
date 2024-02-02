@@ -1,10 +1,8 @@
 using System;
-using UnityEngine;
 
 [Serializable]
 public class ShopItem
 {
-    public string Name;
+    public Item Item;
     public int Cost;
-    public Sprite Icon;
 }
