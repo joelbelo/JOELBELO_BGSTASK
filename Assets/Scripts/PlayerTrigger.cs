@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerTrigger : MonoBehaviour
@@ -5,17 +6,28 @@ public class PlayerTrigger : MonoBehaviour
     private Interactable _currentInteractable;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Vendor"))
-        {
-            _currentInteractable=other.GetComponent<Interactable>();
-        }
+        if (!other.CompareTag("Vendor")) return;
+        
+        _currentInteractable=other.GetComponent<Interactable>();
+        _currentInteractable.EnablePrompt(true);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Vendor"))
+        if (!other.CompareTag("Vendor")) return;
+        
+        _currentInteractable.EnablePrompt(false);
+        _currentInteractable = null;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            _currentInteractable = null;
+            if (_currentInteractable != null)
+            {
+                _currentInteractable.Interact();
+            }
         }
     }
 }
