@@ -20,9 +20,9 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    public int GetItemCount(Item item)
+    public int GetItemCount(string item)
     {
-        InventoryItem it = Inventory.Find(i => i.Item.Name == item.Name);
+        InventoryItem it = Inventory.Find(i => i.Item.Name == item);
 
         if (it != null)
         {
@@ -47,9 +47,9 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    public bool SellItem(Item item, int count)
+    public bool UseCurrency(string currency, int count)
     {
-        InventoryItem it = Inventory.Find(i => i.Item.Name == item.Name);
+        InventoryItem it = Inventory.Find(i => i.Item.Name == currency);
         if (it.Count >= count)
         {
             it.Count -= count;

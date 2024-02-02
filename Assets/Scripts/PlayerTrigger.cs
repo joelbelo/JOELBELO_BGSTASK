@@ -6,7 +6,7 @@ public class PlayerTrigger : MonoBehaviour
     private Interactable _currentInteractable;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Vendor")) return;
+        if (!other.CompareTag("Interactable")) return;
         
         _currentInteractable=other.GetComponent<Interactable>();
         _currentInteractable.EnablePrompt(true);
@@ -14,7 +14,7 @@ public class PlayerTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Vendor")) return;
+        if (!other.CompareTag("Interactable")) return;
         
         _currentInteractable.EnablePrompt(false);
         _currentInteractable = null;

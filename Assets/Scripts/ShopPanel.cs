@@ -25,7 +25,7 @@ public class ShopPanel : UIPanel
 
         foreach (Item s in items)
         {
-            Instantiate(_prefabItem, _content, false).Init(s);
+            Instantiate(_prefabItem, _content, false).Init(s,false);
         }
     }
 
