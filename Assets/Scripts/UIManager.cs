@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -22,10 +23,15 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void OpenShopPanel(List<Item> items, string title)
+    private void Start()
+    {
+        UpdateUI();
+    }
+
+    public void OpenShopPanel(List<Item> items, string title,bool enableSell)
     {
         _shopPanel.gameObject.SetActive(true);
-        _shopPanel.Init(items, title);
+        _shopPanel.Init(items, title,enableSell);
     }
 
     public void OpenClosetPanel()

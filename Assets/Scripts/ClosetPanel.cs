@@ -5,7 +5,7 @@ public class ClosetPanel : UIPanel
 {
     [SerializeField] private Button _btnClose;
     [SerializeField] private Transform _content;
-    [SerializeField] private ItemUI _prefabItem;
+    [SerializeField] private GearUI _prefabItem;
     [SerializeField] private Toggle[] _tabs;
 
     private GearSlot _currentSlot;
@@ -16,14 +16,16 @@ public class ClosetPanel : UIPanel
         _btnClose.onClick.RemoveAllListeners();
         _btnClose.onClick.AddListener(Close);
 
-        for (int i = 0; i < _tabs.Length; i++)
+        foreach (var t in _tabs)
         {
-            _tabs[i].onValueChanged.RemoveAllListeners();
-            _tabs[i].onValueChanged.AddListener((bool on)=>
+            t.onValueChanged.RemoveAllListeners();
+            t.onValueChanged.AddListener((bool on)=>
             {
                 UpdateTabs();
             });
         }
+        
+        ItemManager.Instance.UpdateGear += UpdateTabs;
         
         UpdateTabs();
     }
@@ -61,7 +63,7 @@ public class ClosetPanel : UIPanel
                 continue;
             }
             
-            Instantiate(_prefabItem,_content,false).Init(it.Item,false);
+            Instantiate(_prefabItem,_content,false).Init(g);
         }
     }
 

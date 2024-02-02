@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
     [SerializeField] private GameObject _interactPrompt;
 

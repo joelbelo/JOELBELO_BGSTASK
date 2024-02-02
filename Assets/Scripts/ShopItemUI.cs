@@ -10,12 +10,15 @@ public class ShopItemUI : MonoBehaviour
     [SerializeField] private Image _icon;
     [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _cost;
+    [SerializeField] private TMP_Text _have;
+    [SerializeField] private TMP_Text _owned;
     
     public void Init(Item item, bool sellMode)
     {
         _item = item;
         _icon.sprite = _item.Icon;
         _name.text = _item.Name;
+        _cost.gameObject.SetActive(true);
         _cost.text = _item.Value.ToString();
         
         _btn.onClick.RemoveAllListeners();
@@ -25,9 +28,17 @@ public class ShopItemUI : MonoBehaviour
         {
             if (ItemManager.Instance.GetItemCount(item.Name) > 0)
             {
-                _cost.text = "Owned";
+                _cost.gameObject.SetActive(false);
+                _owned.gameObject.SetActive(true);
                 return;
             }
+        }
+
+        if (sellMode)
+        {
+            _cost.text = item.Value.ToString();
+            _have.gameObject.SetActive(true);
+            _have.text = "Have : " + ItemManager.Instance.GetItemCount(item.Name);
         }
         
         _btn.onClick.AddListener(sellMode ? SellItem : BuyItem);
@@ -45,7 +56,9 @@ public class ShopItemUI : MonoBehaviour
 
     private void SellItem()
     {
-        
+        ItemManager.Instance.SellItem(_item);
+        Init(_item,true);
+        UIManager.Instance.UpdateUI();
     }
     
 }

@@ -4,27 +4,19 @@ using UnityEngine.UI;
 
 public class ItemUI : MonoBehaviour
 {
-    private Item _item;
+    private InventoryItem _item;
 
-    [SerializeField] private Button _btn;
     [SerializeField] private Image _icon;
     [SerializeField] private TMP_Text _name;
-    [SerializeField] private TMP_Text _equipped;
-    
-    public void Init(Item item, bool equipped)
+    [SerializeField] private TMP_Text _count;
+
+    public void Init(InventoryItem item)
     {
         _item = item;
-        _icon.sprite = _item.Icon;
-        _name.text = _item.Name;
-        _btn.onClick.RemoveAllListeners();
-        _btn.onClick.AddListener(Equip);
-        
-        _equipped.enabled = equipped;
+        _icon.sprite = _item.Item.Icon;
+        _name.text = _item.Item.Name;
+        _count.text = "Have: " + _item.Count;
     }
 
-    private void Equip()
-    {
-        
-    }
-    
+
 }

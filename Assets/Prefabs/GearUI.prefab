@@ -147,9 +147,9 @@ GameObject:
   - component: {fileID: 5693424785649699637}
   - component: {fileID: 6595082134305178097}
   - component: {fileID: 4273300782981510426}
-  - component: {fileID: 3946914928152136565}
+  - component: {fileID: 4723884517907356048}
   m_Layer: 5
-  m_Name: ItemUI
+  m_Name: GearUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3946914928152136565
+--- !u!114 &4723884517907356048
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,12 +269,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1548451949178600249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb8f6e3567d4c589ffdf042018cbbfc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5881f630e86c42fb9415547498a35514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _btn: {fileID: 4273300782981510426}
   _icon: {fileID: 4690933048645067331}
   _name: {fileID: 5531988561511439015}
-  _count: {fileID: 4359843213778388583}
+  _equipped: {fileID: 4359843213778388583}
 --- !u!1 &5740585902110410745
 GameObject:
   m_ObjectHideFlags: 0
